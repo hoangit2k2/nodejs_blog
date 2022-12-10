@@ -8,8 +8,10 @@ const port = 3000
 app.use(express.static(path.join(__dirname,'public')));
 //app.use(morgan('combined'))
 //teamlate enginer
-app.engine('handlebars', handlebars.engine());
-app.set('view engine','handlebars');
+app.engine('hbs', handlebars.engine({
+  extname: '.hbs'
+}));
+app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'resoruces/views'))
 
 app.get('/home', (req, res) => {
