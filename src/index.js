@@ -5,7 +5,14 @@ const handlebars = require('express-handlebars')
 const app = express()
 const port = 3000
 
+const route = require('./router')
+
 app.use(express.static(path.join(__dirname,'public')));
+app.use(express.urlencoded({
+  extended: true
+}))
+app.use(express.json())
+
 //app.use(morgan('combined'))
 //teamlate enginer
 app.engine('hbs', handlebars.engine({
@@ -14,20 +21,13 @@ app.engine('hbs', handlebars.engine({
 app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'resoruces/views'))
 
-app.get('/home', (req, res) => {
-  res.render('home');
-})
 
-app.get('/contact', (req, res) => {
-  res.render('contact')
-})
+// Local host --- hosting
 
-app.get('/search',(req,res) => {
-  console.log(req.query.q);
-  console.log(req.query.auth);
-  res.render('search')
-})
+// Action ---> Dispatcher ---> Function handler
 
+//Router Init
+route(app);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
