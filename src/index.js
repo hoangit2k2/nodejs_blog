@@ -2,13 +2,13 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
-const db = require('./config/db/index')
+const db = require('./config/db/index');
 const app = express();
 const port = 3000;
 
 const route = require('./router');
 
-db.connect()
+db.connect();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   express.urlencoded({
@@ -35,5 +35,5 @@ app.set('views', path.join(__dirname, 'resoruces/views'));
 //Router Init
 route(app);
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`App listening on port ${port}`);
 });

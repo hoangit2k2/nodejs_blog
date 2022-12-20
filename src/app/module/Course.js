@@ -1,25 +1,25 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Course = new Schema({
-  name:{
+  name: {
     type: String,
-    default: 'Not have name'
+    default: 'Not have name',
   },
   desscription: {
-    type: String
+    type: String,
   },
   image: {
-    type: String
+    type: String,
   },
-  createAt:{
+  createAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updateAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model('Course', Course)
+module.exports = mongoose.model('Course', Course);
