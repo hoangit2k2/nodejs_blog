@@ -10,8 +10,6 @@ class SiteController {
         });
       })
       .catch(next);
-
-
   }
 
   // [GET] /searc
