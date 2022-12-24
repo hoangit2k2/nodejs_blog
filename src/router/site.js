@@ -6,6 +6,6 @@ const SiteController = require('../app/controllers/SiteController');
 // router usually '/' before '/search'
 route.use('/search', SiteController.search);
 
-route.use('/', SiteController.index);
+route.use('/home', SiteController.index);
 
 module.exports = route;

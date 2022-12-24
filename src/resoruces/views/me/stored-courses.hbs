@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Khóa Học</th>
+            <th>Trình Độ</th>
+            <th>Thời Gian Đào tạo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each courses}}
+        <tr>
+            <td>{{sum @index 1}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.level}}</td>
+            <td></td>
+            <td>
+                <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                <a href="/courses/{{this._id}}/delete" class="btn btn-link">Xóa</a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+         
