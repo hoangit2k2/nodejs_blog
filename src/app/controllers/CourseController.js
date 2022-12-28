@@ -35,15 +35,24 @@ class CourseController {
         res.render('courses/edit',{ 
           course: mongooseToObject(course)
         })
-        .catch(next)
       })
+      .catch(next)
+
 }
   // [PUT] /course/:id
   update(req,res, next){
     // res.json(req.body)
-    // console.log(req.params.id)
+    // console.log(req.params.id)y
+    req.body.image = `https://img.youtube.com/vi/${req.body.videoid}/sddefault.jpg`
     Course.updateOne({_id: req.params.id},req.body)
     .then(() => res.redirect('/me/stored/courses'))
+    .catch(next)
+  }
+
+  // [DELETE] /course/:id
+  delete(req,res, next){
+    Course.deleteOne({_id: req.params.id})
+    .then(() => res.redirect('back'))
     .catch(next)
   }
 }

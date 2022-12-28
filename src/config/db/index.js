@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+mongoose.set('strictQuery', true)
 async function connect() {
   try {
     await mongoose.connect('mongodb://localhost/f8_education_dev');
